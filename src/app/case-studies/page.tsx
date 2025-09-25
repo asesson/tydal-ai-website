@@ -49,92 +49,22 @@ export default function CaseStudies() {
           <Card variant="marketing" className="overflow-hidden">
             <div className="grid lg:grid-cols-2 gap-8">
               <div className="p-8">
-                <Badge variant="success" className="mb-4">Professional Services</Badge>
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                  Email Automation in Professional Services
-                </h2>
-
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Challenge</h3>
-                  <p className="text-gray-600">
-                    A professional services firm was drowning in 3,000+ monthly support emails, leading to long response times and frustrated clients. Manual triage was consuming entire staff days, and important client communications were getting lost in the noise.
-                  </p>
-                </div>
-
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Solution</h3>
-                  <p className="text-gray-600">
-                    Tydal AI deployed an AI agent inside their helpdesk to triage, summarize, and draft replies. The system automatically categorizes emails by urgency and topic, provides intelligent summaries of complex threads, and generates contextually appropriate response drafts.
-                  </p>
-                </div>
-
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Implementation</h3>
-                  <ul className="text-gray-600 space-y-1">
-                    <li>• 5-week pilot with customer support team</li>
-                    <li>• Integration with existing helpdesk platform</li>
-                    <li>• Custom AI models trained on company data</li>
-                    <li>• Gradual rollout with human oversight</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="p-8 bg-gray-50">
-                <h3 className="text-lg font-semibold text-gray-900 mb-6">Results</h3>
-
-                <div className="grid grid-cols-1 gap-4">
-                  <div className="text-center p-4 bg-white rounded-lg shadow-sm">
-                    <div className="text-2xl font-bold text-primary mb-1">30%</div>
-                    <div className="text-sm text-gray-600 mb-1">faster average response times</div>
-                    <div className="text-xs text-gray-500">From 4.2 hours to 2.9 hours</div>
-                  </div>
-
-                  <div className="text-center p-4 bg-white rounded-lg shadow-sm">
-                    <div className="text-2xl font-bold text-primary mb-1">12%</div>
-                    <div className="text-sm text-gray-600 mb-1">lift in customer satisfaction</div>
-                    <div className="text-xs text-gray-500">CSAT score: 4.1 → 4.6</div>
-                  </div>
-
-                  <div className="text-center p-4 bg-white rounded-lg shadow-sm">
-                    <div className="text-2xl font-bold text-primary mb-1">20+</div>
-                    <div className="text-sm text-gray-600 mb-1">staff hours reclaimed each week</div>
-                    <div className="text-xs text-gray-500">Redeployed to client-facing work</div>
-                  </div>
-                </div>
-
-                <div className="mt-6 p-4 bg-primary/5 rounded-lg">
-                  <p className="text-sm text-gray-700">
-                    <strong>6-month ROI:</strong> 240% return on investment through reduced response time and increased client retention.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </div>
-      </section>
-
-      {/* Case Study 2 */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <Card variant="marketing" className="overflow-hidden">
-            <div className="grid lg:grid-cols-2 gap-8">
-              <div className="p-8">
                 <Badge variant="info" className="mb-4">Financial Services</Badge>
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                  Workflow Automation in Lending
+                  Workflow Automation
                 </h2>
 
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Challenge</h3>
                   <p className="text-gray-600">
-                    Loan officers spent hours re-keying data and tracking documents across systems, slowing approvals and risking compliance errors. Manual document verification was creating bottlenecks and inconsistent processing times.
+                    Loan processors spent hours re-keying data and tracking documents across systems, slowing approvals and risking compliance errors. Manual document verification was creating bottlenecks and inconsistent processing times.
                   </p>
                 </div>
 
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Solution</h3>
                   <p className="text-gray-600">
-                    Tydal AI integrated AI-driven document extraction and routing, streamlining the entire loan file process. The system automatically extracts key data from loan applications, verifies document completeness, and routes files based on risk profiles.
+                    AI-driven document classification, data extraction and routing was implemented, streamlining the entire loan file process. The system automatically extracts key data from loan paperwork, verifies document completeness, and routes files based on risk profiles.
                   </p>
                 </div>
 
@@ -154,27 +84,96 @@ export default function CaseStudies() {
 
                 <div className="grid grid-cols-1 gap-4">
                   <div className="text-center p-4 bg-white rounded-lg shadow-sm">
-                    <div className="text-2xl font-bold text-primary mb-1">25%</div>
-                    <div className="text-sm text-gray-600 mb-1">reduction in loan cycle time</div>
-                    <div className="text-xs text-gray-500">From 14 days to 10.5 days</div>
+                    <div className="text-2xl font-bold text-primary mb-1">89%</div>
+                    <div className="text-sm text-gray-600 mb-1">Reduction in processing time</div>
+                    <div className="text-xs text-gray-500">From 1 hr per package to seconds per package</div>
                   </div>
 
                   <div className="text-center p-4 bg-white rounded-lg shadow-sm">
                     <div className="text-2xl font-bold text-primary mb-1">40%</div>
-                    <div className="text-sm text-gray-600 mb-1">drop in compliance errors</div>
+                    <div className="text-sm text-gray-600 mb-1">Drop in compliance errors</div>
                     <div className="text-xs text-gray-500">Error rate: 2.1% → 1.3%</div>
                   </div>
 
                   <div className="text-center p-4 bg-white rounded-lg shadow-sm">
                     <div className="text-2xl font-bold text-primary mb-1">15%</div>
-                    <div className="text-sm text-gray-600 mb-1">more client-facing time</div>
-                    <div className="text-xs text-gray-500">4 additional hours per week per LO</div>
+                    <div className="text-sm text-gray-600 mb-1">More client-facing time</div>
+                    <div className="text-xs text-gray-500">25 additional hours per week per LP</div>
                   </div>
                 </div>
 
                 <div className="mt-6 p-4 bg-primary/5 rounded-lg">
                   <p className="text-sm text-gray-700">
-                    <strong>Annual impact:</strong> $180K in efficiency gains and improved customer experience scores across all loan products.
+                    <strong>Annual impact:</strong> $200K in efficiency gains and reduced staff hours.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Case Study 2 */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <Card variant="marketing" className="overflow-hidden">
+            <div className="grid lg:grid-cols-2 gap-8">
+              <div className="p-8">
+                <Badge variant="success" className="mb-4">Professional Services</Badge>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                  Email Automation in Professional Services
+                </h2>
+
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Challenge</h3>
+                  <p className="text-gray-600">
+                    A professional services firm was drowning in 3,000+ monthly support emails, leading to long response times and frustrated clients. Manual triage was consuming entire staff days, and important client communications were getting lost in the noise.
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Solution</h3>
+                  <p className="text-gray-600">
+                    Email automation was deployed inside their helpdesk to triage, summarize, and draft replies. The system automatically categorizes emails by urgency and topic, provides intelligent summaries of complex threads, and generates contextually appropriate response drafts.
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Implementation</h3>
+                  <ul className="text-gray-600 space-y-1">
+                    <li>• 2-week pilot with customer support team</li>
+                    <li>• Integration with existing helpdesk platform</li>
+                    <li>• AI reponses trained on company data</li>
+                    <li>• Gradual rollout with human oversight</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="p-8 bg-gray-50">
+                <h3 className="text-lg font-semibold text-gray-900 mb-6">Results</h3>
+
+                <div className="grid grid-cols-1 gap-4">
+                  <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                    <div className="text-2xl font-bold text-primary mb-1">64%</div>
+                    <div className="text-sm text-gray-600 mb-1">Faster average response times</div>
+                    <div className="text-xs text-gray-500">From 4.2 hours to 1.5 hours</div>
+                  </div>
+
+                  <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                    <div className="text-2xl font-bold text-primary mb-1">12%</div>
+                    <div className="text-sm text-gray-600 mb-1">Lift in customer satisfaction</div>
+                  </div>
+
+                  <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                    <div className="text-2xl font-bold text-primary mb-1">20+</div>
+                    <div className="text-sm text-gray-600 mb-1">Staff hours reclaimed each week</div>
+                    <div className="text-xs text-gray-500">Redeployed to client-facing work</div>
+                  </div>
+                </div>
+
+                <div className="mt-6 p-4 bg-primary/5 rounded-lg">
+                  <p className="text-sm text-gray-700">
+                    <strong>6-month ROI:</strong> 121% return on investment through reduced response time and staffing hours saved.
                   </p>
                 </div>
               </div>

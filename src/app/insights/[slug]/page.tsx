@@ -205,7 +205,7 @@ The businesses that will thrive with AI aren't necessarily those that adopt it f
   'from-pilot-to-production-30-day-checklist': {
     title: "From Pilot to Production: A 30-Day Checklist",
     category: "Implementation",
-    readTime: "6 min read",
+    readTime: "9 min read",
     publishDate: "July 2025",
     content: `Your AI pilot project is working perfectly. The automated invoice processing system has reduced manual data entry by 80%, eliminated processing errors, and freed your accounting team to focus on strategic analysis. Leadership wants to expand it across all back-office workflows immediately.
 
@@ -326,7 +326,7 @@ Remember that successful AI scaling isn't about speed—it's about sustainabilit
   'why-ai-adoption-fails-and-how-to-prevent-it': {
     title: "Why AI Adoption Fails—and How to Prevent It",
     category: "Strategy",
-    readTime: "7 min read",
+    readTime: "9 min read",
     publishDate: "August 2025",
     content: `Your AI project started with high expectations. The pilot showed promising results, leadership was enthusiastic, and the implementation team was confident. Six months later, the system sits largely unused, the team has returned to manual processes, and everyone wonders what went wrong.
 
@@ -449,7 +449,7 @@ The organizations that will thrive with AI aren't those that avoid all problems�
   'email-ai-beyond-auto-reply': {
     title: "Email AI: Beyond Auto-Reply (Part 1)",
     category: "Advanced Strategies",
-    readTime: "9 min read",
+    readTime: "5 min read",
     publishDate: "September 2025",
     content: `Most businesses think email AI means auto-generating responses to customer inquiries. While automated replies have their place, this narrow view misses the transformative potential of intelligent email management systems that can revolutionize how organizations handle communication workflows.
 
@@ -526,8 +526,8 @@ In Part 2, we'll explore advanced predictive email management, context-aware res
   'roi-calculator-measuring-ai-impact': {
     title: "ROI Calculator: Measuring AI Impact",
     category: "Business Value",
-    readTime: "12 min read",
-    publishDate: "October 2025",
+    readTime: "8 min read",
+    publishDate: "September 2025",
     content: `Your AI project is running smoothly. The automated invoice processing system handles 80% of incoming invoices without human intervention, the team is happier, and clients receive faster service. But when leadership asks about ROI, you find yourself struggling to quantify the actual business impact.
 
 This challenge affects most AI implementations. While the benefits feel obvious to users, translating operational improvements into financial metrics that resonate with executives and stakeholders requires systematic measurement frameworks and careful tracking methodologies.
