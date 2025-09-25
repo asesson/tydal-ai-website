@@ -714,8 +714,8 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ArticlePage({ params }: ArticlePageProps) {
-  const { slug } = params;
+export default async function ArticlePage({ params }: ArticlePageProps) {
+  const { slug } = await params;
   const article = articles[slug as keyof typeof articles];
 
   if (!article) {
