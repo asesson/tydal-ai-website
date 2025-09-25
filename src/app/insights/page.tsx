@@ -10,42 +10,48 @@ export default function Insights() {
       excerpt: "A practical guide to identifying the best starting point for AI implementation in your business.",
       readTime: "5 min read",
       category: "Getting Started",
-      featured: true
+      featured: true,
+      slug: "how-to-pick-your-first-ai-workflow"
     },
     {
       title: "The 7 Guardrails Every SMB Needs Before Rolling Out AI",
       excerpt: "Essential safeguards and compliance measures for responsible AI deployment.",
       readTime: "8 min read",
       category: "Best Practices",
-      featured: true
+      featured: true,
+      slug: "7-guardrails-every-smb-needs-before-rolling-out-ai"
     },
     {
       title: "From Pilot to Production: A 30-Day Checklist",
       excerpt: "Step-by-step guide to scaling successful AI pilots across your organization.",
       readTime: "6 min read",
       category: "Implementation",
-      featured: true
+      featured: true,
+      slug: "from-pilot-to-production-30-day-checklist"
     },
     {
       title: "Why AI Adoption Fails—and How to Prevent It",
       excerpt: "Common pitfalls in AI implementation and proven strategies to avoid them.",
       readTime: "7 min read",
       category: "Strategy",
-      featured: true
+      featured: true,
+      slug: "why-ai-adoption-fails-and-how-to-prevent-it"
     },
     {
-      title: "Email AI: Beyond Auto-Reply",
+      title: "Email AI: Beyond Auto-Reply (Part 1)",
       excerpt: "Advanced email automation strategies that go beyond simple response generation.",
-      readTime: "4 min read",
-      category: "Use Cases",
-      featured: false
+      readTime: "9 min read",
+      category: "Advanced Strategies",
+      featured: false,
+      slug: "email-ai-beyond-auto-reply"
     },
     {
       title: "ROI Calculator: Measuring AI Impact",
       excerpt: "Framework for calculating and tracking return on investment from AI initiatives.",
-      readTime: "5 min read",
+      readTime: "12 min read",
       category: "Business Value",
-      featured: false
+      featured: false,
+      slug: "roi-calculator-measuring-ai-impact"
     }
   ];
 
@@ -99,21 +105,23 @@ export default function Insights() {
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {articles.filter(article => article.featured).map((article, index) => (
-              <Card key={index} variant="marketing" className="p-6 hover:shadow-lg transition-shadow cursor-pointer">
-                <div className="mb-4">
-                  <Badge variant="info" size="sm">{article.category}</Badge>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  {article.title}
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  {article.excerpt}
-                </p>
-                <div className="flex items-center justify-between text-sm text-gray-500">
-                  <span>{article.readTime}</span>
-                  <span className="text-primary hover:text-primary-dark font-medium">Read more →</span>
-                </div>
-              </Card>
+              <Link key={index} href={`/insights/${article.slug}`}>
+                <Card variant="marketing" className="p-6 hover:shadow-lg transition-shadow cursor-pointer h-full">
+                  <div className="mb-4">
+                    <Badge variant="info" size="sm">{article.category}</Badge>
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    {article.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    {article.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between text-sm text-gray-500">
+                    <span>{article.readTime}</span>
+                    <span className="text-primary hover:text-primary-dark font-medium">Read more →</span>
+                  </div>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -130,21 +138,23 @@ export default function Insights() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {articles.map((article, index) => (
-              <Card key={index} className="p-6 hover:shadow-md transition-shadow cursor-pointer">
-                <div className="mb-4">
-                  <Badge variant="neutral" size="sm">{article.category}</Badge>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  {article.title}
-                </h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  {article.excerpt}
-                </p>
-                <div className="flex items-center justify-between text-sm text-gray-500">
-                  <span>{article.readTime}</span>
-                  <span className="text-primary hover:text-primary-dark font-medium">Read →</span>
-                </div>
-              </Card>
+              <Link key={index} href={`/insights/${article.slug}`}>
+                <Card className="p-6 hover:shadow-md transition-shadow cursor-pointer h-full">
+                  <div className="mb-4">
+                    <Badge variant="neutral" size="sm">{article.category}</Badge>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                    {article.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-4">
+                    {article.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between text-sm text-gray-500">
+                    <span>{article.readTime}</span>
+                    <span className="text-primary hover:text-primary-dark font-medium">Read →</span>
+                  </div>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>

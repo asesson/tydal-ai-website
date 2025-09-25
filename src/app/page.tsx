@@ -7,9 +7,9 @@ import { HiLightningBolt, HiShieldCheck, HiTrendingUp, HiMail, HiUserGroup, HiCo
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-background">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-gray-200">
+      <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
@@ -47,7 +47,7 @@ export default function Home() {
 
           {/* Trust Indicators */}
           <div className="mb-12">
-            <p className="text-sm text-gray-500 mb-4">Works with</p>
+            <p className="text-sm text-gray-500 mb-6">Works with</p>
             <div className="relative overflow-hidden">
               <div className="flex animate-scroll">
                 <div className="flex items-center gap-12 whitespace-nowrap">
@@ -115,7 +115,12 @@ export default function Home() {
           </div>
 
 
-          {/* Key Benefits */}
+        </div>
+      </section>
+
+      {/* Key Benefits - Green Section */}
+      <section className="py-16 bg-green-50">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <Card className="text-center">
               <div className="flex justify-center mb-4">
@@ -143,7 +148,7 @@ export default function Home() {
       </section>
 
       {/* Quick Wins Preview */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -208,10 +213,10 @@ export default function Home() {
       </section>
 
       {/* Social Proof */}
-      <section className="py-16">
+      <section className="py-16 bg-primary text-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               See how businesses like yours are creating measurable results
             </h2>
           </div>

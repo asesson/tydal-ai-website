@@ -36,10 +36,10 @@ export default function Services() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            AI adoption doesn't have to be complex or risky
+            Transform your business with AI that actually works
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-12">
-            We meet you where you are today and build solutions that grow with you tomorrow.
+            From proof of concept to enterprise scale, we deliver AI solutions tailored to your pace and priorities.
           </p>
         </div>
       </section>
@@ -227,7 +227,7 @@ export default function Services() {
               </div>
               <h3 className="text-lg font-semibold mb-3">Accuracy & Feedback</h3>
               <p className="text-gray-600 text-sm">
-                Monthly evaluation and testing of AI performance.
+                Regular evaluation and testing of AI performance.
               </p>
             </Card>
 
