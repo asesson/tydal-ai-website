@@ -1,4 +1,4 @@
-import { Card, Badge } from '@/components/ui';
+import { Card } from '@/components/ui';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaAws, FaMicrosoft, FaGoogle } from 'react-icons/fa';

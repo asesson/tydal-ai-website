@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Badge } from '@/components/ui';
+import { Badge } from '@/components/ui';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -769,7 +769,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
       }
       // Check if this is an italic paragraph
       const isItalic = paragraph.startsWith('*') && paragraph.endsWith('*');
-      let contentToProcess = isItalic ? paragraph.slice(1, -1) : paragraph;
+      const contentToProcess = isItalic ? paragraph.slice(1, -1) : paragraph;
 
       // Handle links and bold text in paragraphs
       const processInlineFormatting = (text: string) => {

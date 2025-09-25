@@ -12,7 +12,7 @@ interface AccordionSectionProps {
   isOpen: boolean;
   onClick: () => void;
   icon: string;
-  metrics?: any[];
+  metrics?: { value: string; description: string; subtitle?: string; trend?: 'up' | 'down' | 'neutral'; }[];
 }
 
 const AccordionSection: React.FC<AccordionSectionProps> = ({

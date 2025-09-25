@@ -9,7 +9,7 @@ interface TimelineStepProps {
   title: string;
   description: string;
   status: 'before' | 'during' | 'after';
-  metrics?: any[];
+  metrics?: { value: string; description: string; subtitle?: string; trend?: 'up' | 'down' | 'neutral'; }[];
   className?: string;
 }
 

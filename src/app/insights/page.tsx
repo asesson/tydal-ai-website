@@ -1,7 +1,7 @@
 import { Card, Badge } from '@/components/ui';
 import Link from 'next/link';
 import Image from 'next/image';
-import { HiRocketLaunch, HiCog, HiChartBar, HiArrowRight } from 'react-icons/hi2';
+import { HiRocketLaunch, HiCog, HiChartBar } from 'react-icons/hi2';
 
 export default function Insights() {
   const articles = [
