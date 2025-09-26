@@ -40,8 +40,174 @@ export const metadata: Metadata = {
 };
 
 export default function Services() {
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Consulting Services",
+    "description": "Comprehensive AI consulting services for small and mid-sized businesses. From AI foundations to scaled governance, we help transform your operations with automated workflows and intelligent decision-making.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Tydal AI",
+      "url": "https://tydalai.com"
+    },
+    "serviceType": "AI Consulting",
+    "areaServed": "Global",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AI Consulting Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Email Automation",
+            "description": "Classify, summarize, and draft replies to reduce response times with automatic email categorization, intelligent summarization, draft response generation, and priority detection."
+          },
+          "category": "Quick Wins"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Sales Co-Pilots",
+            "description": "AI-powered research and outreach to boost pipeline with lead qualification scoring, automated prospect research, personalized outreach drafts, and follow-up sequence management."
+          },
+          "category": "Quick Wins"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Workflow Automation",
+            "description": "Eliminate repetitive back-office tasks and human error with document processing & extraction, data validation & cleansing, process optimization, and exception handling."
+          },
+          "category": "Quick Wins"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Smart Meeting Notes",
+            "description": "Automatically capture, transcribe, and organize meeting insights with real-time transcription, action item extraction, meeting summaries, and speaker identification."
+          },
+          "category": "Quick Wins"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Company Knowledge Chat",
+            "description": "Chat with your business data to get instant insights and answers with document search, data analysis, instant answers, and knowledge retrieval."
+          },
+          "category": "Quick Wins"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Smart Connections",
+            "description": "Connect your tools and automate workflows with intelligent integrations including API tool synchronization, automated workflows, data harmonization, and system integration."
+          },
+          "category": "Quick Wins"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Data Integrations",
+            "description": "Secure access layers connecting your existing systems with AI capabilities."
+          },
+          "category": "Foundations"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Compliance Monitoring",
+            "description": "Automated audit trails and compliance checking for regulatory requirements."
+          },
+          "category": "Foundations"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Performance Dashboards",
+            "description": "Real-time monitoring and reporting on AI system performance and ROI."
+          },
+          "category": "Foundations"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Accuracy & Feedback",
+            "description": "Regular evaluation and testing of AI performance."
+          },
+          "category": "Scale & Governance"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI Expansion Planning",
+            "description": "Identify new high-impact automation opportunities."
+          },
+          "category": "Scale & Governance"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Training & Adoption",
+            "description": "Comprehensive playbooks and training programs for team enablement."
+          },
+          "category": "Scale & Governance"
+        }
+      ]
+    }
+  };
+
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI Consulting Services | Tydal AI",
+    "description": "Comprehensive AI consulting services for small and mid-sized businesses. From AI foundations to scaled governance, we help transform your operations with automated workflows and intelligent decision-making.",
+    "url": "https://tydalai.com/services",
+    "mainEntity": {
+      "@type": "Service",
+      "name": "AI Consulting Services"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tydalai.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://tydalai.com/services"
+        }
+      ]
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-background">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -50,7 +216,7 @@ export default function Services() {
               <Link href="/" className="flex items-center gap-2">
                 <Image
                   src="/tydal-logo-green.png"
-                  alt="Tydal AI Logo"
+                  alt="Tydal AI - Return to homepage"
                   width={160}
                   height={60}
                   className="h-12 w-auto"
@@ -300,6 +466,25 @@ export default function Services() {
             Schedule a discovery call. We'll walk through your workflows,
             identify quick wins, and show you what's possible.
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-8 py-4 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors text-lg"
+            >
+              Schedule Discovery Call
+            </Link>
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary transition-colors text-lg"
+            >
+              See Success Stories
+            </Link>
+          </div>
+
+          <p className="text-white mt-6 opacity-75">
+            Want to learn more? Read our <Link href="/insights" className="text-white hover:underline font-medium">insights and guides</Link> or explore <Link href="/about" className="text-white hover:underline font-medium">our approach</Link> to AI implementation.
+          </p>
         </div>
       </section>
 
@@ -310,7 +495,7 @@ export default function Services() {
             <div>
               <Image
                 src="/tydal-logo-green.png"
-                alt="Tydal AI Logo"
+                alt="Tydal AI - Return to homepage"
                 width={160}
                 height={60}
                 className="h-6 w-auto mb-4"
@@ -318,7 +503,7 @@ export default function Services() {
               <p className="text-gray-400">Making advanced AI accessible to growing businesses.</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
+              <h5 className="font-semibold mb-4">Services</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
                 <li><Link href="/services" className="hover:text-white transition-colors">Foundations</Link></li>
@@ -326,7 +511,7 @@ export default function Services() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h5 className="font-semibold mb-4">Company</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
                 <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
@@ -334,7 +519,7 @@ export default function Services() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Connect</h4>
+              <h5 className="font-semibold mb-4">Connect</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
               </ul>

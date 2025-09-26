@@ -39,8 +39,38 @@ export const metadata: Metadata = {
 };
 
 export default function CaseStudies() {
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI Success Stories & Case Studies | Tydal AI",
+    "description": "Explore real AI success stories and implementation case studies. See how businesses achieved measurable results through strategic AI automation.",
+    "url": "https://tydalagentai.com/case-studies",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tydalagentai.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Case Studies",
+          "item": "https://tydalagentai.com/case-studies"
+        }
+      ]
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-background">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -49,7 +79,7 @@ export default function CaseStudies() {
               <Link href="/" className="flex items-center gap-2">
                 <Image
                   src="/tydal-logo-green.png"
-                  alt="Tydal AI Logo"
+                  alt="Tydal AI - Return to homepage"
                   width={160}
                   height={60}
                   className="h-12 w-auto"
@@ -281,7 +311,7 @@ See how these results could translate to your team
             <div>
               <Image
                 src="/tydal-logo-green.png"
-                alt="Tydal AI Logo"
+                alt="Tydal AI - Return to homepage"
                 width={160}
                 height={60}
                 className="h-6 w-auto mb-4"
@@ -289,7 +319,7 @@ See how these results could translate to your team
               <p className="text-gray-400">Making advanced AI accessible to growing businesses.</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
+              <h5 className="font-semibold mb-4">Services</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
                 <li><Link href="/services" className="hover:text-white transition-colors">Foundations</Link></li>
@@ -297,7 +327,7 @@ See how these results could translate to your team
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h5 className="font-semibold mb-4">Company</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
                 <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
@@ -305,7 +335,7 @@ See how these results could translate to your team
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Connect</h4>
+              <h5 className="font-semibold mb-4">Connect</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
               </ul>

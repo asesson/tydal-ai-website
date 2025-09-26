@@ -40,8 +40,38 @@ export const metadata: Metadata = {
 };
 
 export default function About() {
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "About Tydal AI | AI Transformation Experts",
+    "description": "Learn about Tydal AI - AI transformation experts helping small and mid-sized businesses unlock real value from artificial intelligence.",
+    "url": "https://tydalagentai.com/about",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tydalagentai.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://tydalagentai.com/about"
+        }
+      ]
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-background">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -50,7 +80,7 @@ export default function About() {
               <Link href="/" className="flex items-center gap-2">
                 <Image
                   src="/tydal-logo-green.png"
-                  alt="Tydal AI Logo"
+                  alt="Tydal AI - Return to homepage"
                   width={160}
                   height={60}
                   className="h-12 w-auto"
@@ -262,6 +292,25 @@ export default function About() {
           <p className="text-xl mb-8 opacity-90">
             Let's start with one conversation. No sales pitch, no lengthy discovery process—just a practical discussion about what's possible for your business.
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-8 py-4 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors text-lg"
+            >
+              Schedule a Call
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary transition-colors text-lg"
+            >
+              Explore Services
+            </Link>
+          </div>
+
+          <p className="text-white mt-6 opacity-75">
+            See how others have succeeded with our approach by reading our <Link href="/case-studies" className="text-white hover:underline font-medium">client success stories</Link>.
+          </p>
         </div>
       </section>
 
@@ -272,7 +321,7 @@ export default function About() {
             <div>
               <Image
                 src="/tydal-logo-green.png"
-                alt="Tydal AI Logo"
+                alt="Tydal AI - Return to homepage"
                 width={160}
                 height={60}
                 className="h-6 w-auto mb-4"
@@ -280,7 +329,7 @@ export default function About() {
               <p className="text-gray-400">Making advanced AI accessible to growing businesses.</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
+              <h5 className="font-semibold mb-4">Services</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
                 <li><Link href="/services" className="hover:text-white transition-colors">Foundations</Link></li>
@@ -288,7 +337,7 @@ export default function About() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h5 className="font-semibold mb-4">Company</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
                 <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
@@ -296,7 +345,7 @@ export default function About() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Connect</h4>
+              <h5 className="font-semibold mb-4">Connect</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
               </ul>

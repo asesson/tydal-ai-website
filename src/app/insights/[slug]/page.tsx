@@ -3,6 +3,7 @@ import { Badge } from '@/components/ui';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 
 // Article data
 const articles = {
@@ -708,6 +709,90 @@ interface ArticlePageProps {
   };
 }
 
+export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const article = articles[slug as keyof typeof articles];
+
+  if (!article) {
+    return {
+      title: 'Article Not Found | Tydal AI',
+      description: 'The requested article could not be found.'
+    };
+  }
+
+  // Extract first paragraph for description
+  const firstParagraph = article.content.split('\n\n')[0];
+  const description = firstParagraph.length > 160
+    ? firstParagraph.substring(0, 157) + '...'
+    : firstParagraph;
+
+  const baseUrl = 'https://tydalagentai.com';
+  const url = `${baseUrl}/insights/${slug}`;
+
+  return {
+    title: `${article.title} | Tydal AI`,
+    description,
+    keywords: [
+      'AI consulting',
+      'business automation',
+      'AI implementation',
+      'SMB AI solutions',
+      'workflow automation',
+      article.category.toLowerCase()
+    ],
+    authors: [{ name: 'Tydal AI' }],
+    creator: 'Tydal AI',
+    publisher: 'Tydal AI',
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    metadataBase: new URL(baseUrl),
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: article.title,
+      description,
+      url,
+      siteName: 'Tydal AI',
+      locale: 'en_US',
+      type: 'article',
+      publishedTime: new Date(article.publishDate).toISOString(),
+      authors: ['Tydal AI'],
+      section: article.category,
+      tags: ['AI consulting', 'business automation', 'AI implementation'],
+      images: [
+        {
+          url: `${baseUrl}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: `${article.title} - Tydal AI`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description,
+      creator: '@tydalai',
+      images: [`${baseUrl}/og-image.png`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
+
 export function generateStaticParams() {
   return Object.keys(articles).map((slug) => ({
     slug: slug,
@@ -832,8 +917,51 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     });
   };
 
+  // Generate Article structured data
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.title,
+    "description": article.content.split('\n\n')[0],
+    "author": {
+      "@type": "Organization",
+      "name": "Tydal AI",
+      "url": "https://tydalagentai.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Tydal AI",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tydalagentai.com/tydal-logo-green.png"
+      }
+    },
+    "datePublished": new Date(article.publishDate).toISOString(),
+    "dateModified": new Date(article.publishDate).toISOString(),
+    "articleSection": article.category,
+    "wordCount": article.content.split(' ').length,
+    "timeRequired": article.readTime,
+    "keywords": ["AI consulting", "business automation", "AI implementation", article.category],
+    "url": `https://tydalagentai.com/insights/${slug}`,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://tydalagentai.com/insights/${slug}`
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://tydalagentai.com/og-image.png",
+      "width": 1200,
+      "height": 630
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-background">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -842,7 +970,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <Link href="/" className="flex items-center gap-2">
                 <Image
                   src="/tydal-logo-green.png"
-                  alt="Tydal AI Logo"
+                  alt="Tydal AI - Return to homepage"
                   width={160}
                   height={60}
                   className="h-12 w-auto"
@@ -899,7 +1027,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <div>
               <Image
                 src="/tydal-logo-green.png"
-                alt="Tydal AI Logo"
+                alt="Tydal AI - Return to homepage"
                 width={160}
                 height={60}
                 className="h-6 w-auto mb-4"
@@ -907,7 +1035,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <p className="text-gray-400">Making advanced AI accessible to growing businesses.</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
+              <h5 className="font-semibold mb-4">Services</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
                 <li><Link href="/services" className="hover:text-white transition-colors">Foundations</Link></li>
@@ -915,7 +1043,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h5 className="font-semibold mb-4">Company</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
                 <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
@@ -923,7 +1051,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Connect</h4>
+              <h5 className="font-semibold mb-4">Connect</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
               </ul>

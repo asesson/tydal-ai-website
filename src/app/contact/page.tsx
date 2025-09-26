@@ -55,7 +55,7 @@ Preferred Time: ${formData.preferredTime}
               <Link href="/" className="flex items-center gap-2">
                 <Image
                   src="/tydal-logo-green.png"
-                  alt="Tydal AI Logo"
+                  alt="Tydal AI - Return to homepage"
                   width={160}
                   height={60}
                   className="h-12 w-auto"
@@ -91,6 +91,7 @@ Preferred Time: ${formData.preferredTime}
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Form */}
             <Card className="p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Schedule Your Discovery Call</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <Input
                   label="Name"
@@ -149,6 +150,7 @@ Preferred Time: ${formData.preferredTime}
 
             {/* Additional Information */}
             <div className="space-y-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">What to Expect</h2>
               <Card className="p-6">
                 <h3 className="text-lg font-semibold mb-4">What to expect from your call</h3>
                 <ul className="space-y-3 text-gray-600">
@@ -242,7 +244,7 @@ Preferred Time: ${formData.preferredTime}
             <div>
               <Image
                 src="/tydal-logo-green.png"
-                alt="Tydal AI Logo"
+                alt="Tydal AI - Return to homepage"
                 width={160}
                 height={60}
                 className="h-6 w-auto mb-4"
@@ -250,7 +252,7 @@ Preferred Time: ${formData.preferredTime}
               <p className="text-gray-400">Making advanced AI accessible to growing businesses.</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
+              <h5 className="font-semibold mb-4">Services</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
                 <li><Link href="/services" className="hover:text-white transition-colors">Foundations</Link></li>
@@ -258,7 +260,7 @@ Preferred Time: ${formData.preferredTime}
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h5 className="font-semibold mb-4">Company</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
                 <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
@@ -266,7 +268,7 @@ Preferred Time: ${formData.preferredTime}
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Connect</h4>
+              <h5 className="font-semibold mb-4">Connect</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
               </ul>

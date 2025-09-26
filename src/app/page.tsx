@@ -8,29 +8,56 @@ import { HiLightningBolt, HiShieldCheck, HiTrendingUp, HiMail, HiUserGroup, HiCo
 export default function Home() {
   const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "ProfessionalService"],
     "name": "Tydal AI",
+    "alternateName": "Tydal Agent AI",
     "description": "AI consulting company helping small and mid-sized businesses unlock real value from artificial intelligence through strategic implementation and automation.",
     "url": "https://tydalai.com",
     "logo": "https://tydalai.com/tydal-logo-green.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Business",
-      "email": "hello@tydalai.com",
-      "url": "https://tydalai.com/contact"
-    },
-    "sameAs": [
-      "https://linkedin.com/company/tydal-ai"
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "info@tydalagentai.com",
+        "url": "https://tydalai.com/contact"
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "business",
+        "email": "hello@tydalai.com",
+        "url": "https://tydalai.com/contact"
+      }
     ],
-    "services": [
+    "sameAs": [
+      "https://www.linkedin.com/company/tydal-agent-ai/?viewAsMember=true"
+    ],
+    "serviceType": [
       "AI Consulting",
       "Business Process Automation",
       "AI Implementation",
       "AI Strategy Development",
-      "Workflow Automation"
+      "Workflow Automation",
+      "AI Integration Services"
     ],
+    "areaServed": {
+      "@type": "Place",
+      "name": "Global"
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Small and mid-sized businesses (10-500 employees)"
+    },
     "industry": "Technology Consulting",
-    "foundingDate": "2024"
+    "foundingDate": "2024",
+    "slogan": "Making advanced AI accessible to growing businesses",
+    "knowsAbout": [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Business Process Automation",
+      "Workflow Optimization",
+      "AI Implementation",
+      "Digital Transformation"
+    ]
   };
 
   const webPageSchema = {
@@ -75,7 +102,7 @@ export default function Home() {
               <Link href="/" className="flex items-center gap-2">
                 <Image
                   src="/tydal-logo-green.png"
-                  alt="Tydal AI Logo"
+                  alt="Tydal AI - Return to homepage"
                   width={160}
                   height={60}
                   className="h-12 w-auto"
@@ -103,6 +130,21 @@ export default function Home() {
             From automated workflows to data-driven decisions, Tydal AI helps small and
             mid-sized companies unlock real value from AI—fast, safe, and scalable.
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <Link
+              href="/services"
+              className="inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors"
+            >
+              Explore Our Services
+            </Link>
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors"
+            >
+              View Success Stories
+            </Link>
+          </div>
 
           {/* Trust Indicators */}
           <div className="mb-12">
@@ -268,6 +310,18 @@ export default function Home() {
             </Card>
           </div>
 
+          <div className="text-center mt-12">
+            <Link
+              href="/services"
+              className="inline-flex items-center px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors text-lg"
+            >
+              See All Our AI Services
+            </Link>
+            <p className="text-gray-600 mt-4">
+              Discover our complete range of <Link href="/services" className="text-primary hover:underline">AI consulting services</Link> and find the perfect solution for your business.
+            </p>
+          </div>
+
         </div>
       </section>
 
@@ -324,6 +378,18 @@ export default function Home() {
             </Card>
           </div>
 
+          <div className="text-center mt-12">
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center px-8 py-4 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors text-lg"
+            >
+              View More Success Stories
+            </Link>
+            <p className="text-white mt-4 opacity-90">
+              See detailed <Link href="/case-studies" className="text-white hover:underline font-medium">case studies</Link> and learn how we've helped businesses like yours transform with AI.
+            </p>
+          </div>
+
         </div>
       </section>
 
@@ -334,7 +400,7 @@ export default function Home() {
             <div>
               <Image
                 src="/tydal-logo-green.png"
-                alt="Tydal AI Logo"
+                alt="Tydal AI - Return to homepage"
                 width={140}
                 height={50}
                 className="h-8 w-auto mb-4"
@@ -342,7 +408,7 @@ export default function Home() {
               <p className="text-gray-400">Making advanced AI accessible to growing businesses.</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
+              <h5 className="font-semibold mb-4">Services</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
                 <li><Link href="/services" className="hover:text-white transition-colors">Foundations</Link></li>
@@ -350,7 +416,7 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h5 className="font-semibold mb-4">Company</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
                 <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
@@ -358,7 +424,7 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Connect</h4>
+              <h5 className="font-semibold mb-4">Connect</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
               </ul>

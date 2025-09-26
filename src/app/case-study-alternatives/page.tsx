@@ -108,7 +108,7 @@ const CaseStudyAlternatives: React.FC = () => {
               <Link href="/" className="flex items-center gap-2">
                 <Image
                   src="/tydal-logo-green.png"
-                  alt="Tydal AI Logo"
+                  alt="Tydal AI - Return to homepage"
                   width={160}
                   height={60}
                   className="h-12 w-auto"
@@ -259,7 +259,7 @@ const CaseStudyAlternatives: React.FC = () => {
           <div className="text-center">
             <Image
               src="/tydal-logo-green.png"
-              alt="Tydal AI Logo"
+              alt="Tydal AI - Return to homepage"
               width={160}
               height={60}
               className="h-8 w-auto mx-auto mb-4"
