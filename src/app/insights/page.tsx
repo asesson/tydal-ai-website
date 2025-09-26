@@ -2,6 +2,42 @@ import { Card, Badge } from '@/components/ui';
 import Link from 'next/link';
 import Image from 'next/image';
 import { HiRocketLaunch, HiCog, HiChartBar } from 'react-icons/hi2';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'AI Insights & Resources',
+  description: 'Expert insights on AI implementation, business automation strategies, and practical guides for transforming your business with artificial intelligence.',
+  keywords: [
+    'AI insights',
+    'AI implementation guides',
+    'business automation strategies',
+    'AI transformation resources',
+    'AI consulting insights',
+    'business AI resources',
+    'AI workflow guides'
+  ],
+  openGraph: {
+    title: 'AI Insights & Resources | Tydal AI',
+    description: 'Expert insights on AI implementation, business automation strategies, and practical guides for transforming your business with artificial intelligence.',
+    url: 'https://tydalai.com/insights',
+    images: [
+      {
+        url: '/og-insights.png',
+        width: 1200,
+        height: 630,
+        alt: 'Tydal AI Insights - Expert AI Implementation Guides',
+      }
+    ],
+  },
+  twitter: {
+    title: 'AI Insights & Resources | Tydal AI',
+    description: 'Expert insights on AI implementation, business automation strategies, and practical guides for transforming your business with artificial intelligence.',
+    images: ['/og-insights.png'],
+  },
+  alternates: {
+    canonical: 'https://tydalai.com/insights',
+  },
+};
 
 export default function Insights() {
   const articles = [

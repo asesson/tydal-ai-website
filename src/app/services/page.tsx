@@ -2,6 +2,42 @@ import { Card, Badge } from '@/components/ui';
 import Link from 'next/link';
 import Image from 'next/image';
 import { HiMail, HiUserGroup, HiCog, HiLink, HiShieldCheck, HiChartBar, HiSearchCircle, HiArchive, HiAcademicCap, HiMicrophone, HiChat } from 'react-icons/hi';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'AI Consulting Services',
+  description: 'Comprehensive AI consulting services for small and mid-sized businesses. From AI foundations to scaled governance, we help transform your operations with automated workflows and intelligent decision-making.',
+  keywords: [
+    'AI consulting services',
+    'business process automation',
+    'AI workflow automation',
+    'AI integration services',
+    'business AI consulting',
+    'AI transformation services',
+    'process automation consulting'
+  ],
+  openGraph: {
+    title: 'AI Consulting Services | Tydal AI',
+    description: 'Comprehensive AI consulting services for small and mid-sized businesses. Transform your operations with automated workflows and intelligent decision-making.',
+    url: 'https://tydalai.com/services',
+    images: [
+      {
+        url: '/og-services.png',
+        width: 1200,
+        height: 630,
+        alt: 'Tydal AI Services - AI Consulting and Business Automation',
+      }
+    ],
+  },
+  twitter: {
+    title: 'AI Consulting Services | Tydal AI',
+    description: 'Comprehensive AI consulting services for small and mid-sized businesses. Transform your operations with automated workflows and intelligent decision-making.',
+    images: ['/og-services.png'],
+  },
+  alternates: {
+    canonical: 'https://tydalai.com/services',
+  },
+};
 
 export default function Services() {
   return (

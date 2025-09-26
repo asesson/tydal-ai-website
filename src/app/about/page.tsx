@@ -2,6 +2,42 @@ import { Card } from '@/components/ui';
 import Link from 'next/link';
 import Image from 'next/image';
 import { HiChartBar, HiUserGroup, HiShieldCheck, HiCloud, HiRocketLaunch, HiTag, HiCog, HiArrowTrendingUp } from 'react-icons/hi2';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About Us',
+  description: 'Learn about Tydal AI - AI transformation experts helping small and mid-sized businesses unlock real value from artificial intelligence through strategic consulting and implementation.',
+  keywords: [
+    'AI consulting company',
+    'AI transformation experts',
+    'business AI specialists',
+    'AI implementation team',
+    'AI consulting experts',
+    'business automation specialists',
+    'AI strategy consultants'
+  ],
+  openGraph: {
+    title: 'About Tydal AI | AI Transformation Experts',
+    description: 'Learn about Tydal AI - AI transformation experts helping small and mid-sized businesses unlock real value from artificial intelligence.',
+    url: 'https://tydalai.com/about',
+    images: [
+      {
+        url: '/og-about.png',
+        width: 1200,
+        height: 630,
+        alt: 'About Tydal AI - AI Transformation Experts',
+      }
+    ],
+  },
+  twitter: {
+    title: 'About Tydal AI | AI Transformation Experts',
+    description: 'Learn about Tydal AI - AI transformation experts helping small and mid-sized businesses unlock real value from artificial intelligence.',
+    images: ['/og-about.png'],
+  },
+  alternates: {
+    canonical: 'https://tydalai.com/about',
+  },
+};
 
 export default function About() {
   return (

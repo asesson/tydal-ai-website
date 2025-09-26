@@ -1,6 +1,42 @@
 import { Card, Badge } from '@/components/ui';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Case Studies',
+  description: 'Explore real AI success stories and implementation case studies from Tydal AI. See how businesses achieved measurable results through strategic AI automation and workflow optimization.',
+  keywords: [
+    'AI success stories',
+    'AI implementation case studies',
+    'business automation results',
+    'AI ROI examples',
+    'AI transformation case studies',
+    'business process automation results',
+    'AI consulting success stories'
+  ],
+  openGraph: {
+    title: 'AI Success Stories & Case Studies | Tydal AI',
+    description: 'Explore real AI success stories and implementation case studies. See how businesses achieved measurable results through strategic AI automation.',
+    url: 'https://tydalai.com/case-studies',
+    images: [
+      {
+        url: '/og-case-studies.png',
+        width: 1200,
+        height: 630,
+        alt: 'Tydal AI Case Studies - Real Business Results',
+      }
+    ],
+  },
+  twitter: {
+    title: 'AI Success Stories & Case Studies | Tydal AI',
+    description: 'Explore real AI success stories and implementation case studies. See how businesses achieved measurable results through strategic AI automation.',
+    images: ['/og-case-studies.png'],
+  },
+  alternates: {
+    canonical: 'https://tydalai.com/case-studies',
+  },
+};
 
 export default function CaseStudies() {
   return (

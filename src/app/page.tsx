@@ -6,8 +6,67 @@ import { SiOpenai, SiAnthropic, SiGooglegemini } from 'react-icons/si';
 import { HiLightningBolt, HiShieldCheck, HiTrendingUp, HiMail, HiUserGroup, HiCog, HiMicrophone, HiChat, HiLink } from 'react-icons/hi';
 
 export default function Home() {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Tydal AI",
+    "description": "AI consulting company helping small and mid-sized businesses unlock real value from artificial intelligence through strategic implementation and automation.",
+    "url": "https://tydalai.com",
+    "logo": "https://tydalai.com/tydal-logo-green.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Business",
+      "email": "hello@tydalai.com",
+      "url": "https://tydalai.com/contact"
+    },
+    "sameAs": [
+      "https://linkedin.com/company/tydal-ai"
+    ],
+    "services": [
+      "AI Consulting",
+      "Business Process Automation",
+      "AI Implementation",
+      "AI Strategy Development",
+      "Workflow Automation"
+    ],
+    "industry": "Technology Consulting",
+    "foundingDate": "2024"
+  };
+
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Tydal AI - Transform Your Business",
+    "description": "From automated workflows to data-driven decisions, Tydal AI helps small and mid-sized companies unlock real value from AI—fast, safe, and scalable.",
+    "url": "https://tydalai.com",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Tydal AI"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tydalai.com"
+        }
+      ]
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
