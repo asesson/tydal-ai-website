@@ -1,14 +1,17 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { trackButtonClick } from '@/lib/analytics';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost' | 'destructive';
   size?: 'sm' | 'md' | 'lg';
   loading?: boolean;
+  analyticsLabel?: string;
+  analyticsLocation?: string;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', loading = false, children, disabled, ...props }, ref) => {
+  ({ className, variant = 'primary', size = 'md', loading = false, children, disabled, analyticsLabel, analyticsLocation, onClick, ...props }, ref) => {
     const variants = {
       primary: 'bg-gradient-to-b from-primary to-primary-dark border border-primary-dark text-white hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm',
       secondary: 'bg-transparent border-1.5 border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50',
@@ -22,6 +25,20 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       lg: 'px-8 py-4 text-lg'
     };
 
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      // Track button click if analytics props are provided
+      if (analyticsLabel) {
+        const buttonText = typeof children === 'string' ? children : analyticsLabel;
+        const location = analyticsLocation || 'unknown';
+        trackButtonClick(buttonText, location);
+      }
+
+      // Call the original onClick handler if provided
+      if (onClick) {
+        onClick(event);
+      }
+    };
+
     return (
       <button
         className={cn(
@@ -31,6 +48,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className
         )}
         disabled={disabled || loading}
+        onClick={handleClick}
         ref={ref}
         {...props}
       >
