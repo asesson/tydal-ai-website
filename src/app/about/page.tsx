@@ -246,7 +246,7 @@ export default function About() {
             <div>
               <h4 className="font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="/services" className="hover:text-white transition-colors">Quick Wins</Link></li>
+                <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
                 <li><Link href="/services" className="hover:text-white transition-colors">Foundations</Link></li>
                 <li><Link href="/services" className="hover:text-white transition-colors">Scale & Governance</Link></li>
               </ul>
