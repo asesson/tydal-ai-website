@@ -1,7 +1,8 @@
+# Global rules for all crawlers
 User-agent: *
 Allow: /
 
-# Disallow admin and private areas (if any exist in future)
+# Disallow admin and private areas
 Disallow: /admin/
 Disallow: /api/
 Disallow: /_next/
@@ -14,6 +15,49 @@ Allow: /about
 Allow: /contact
 Allow: /case-studies
 Allow: /insights
+
+# AI/LLM Crawlers - ChatGPT, Claude, Perplexity, etc.
+User-agent: GPTBot
+Allow: /
+Allow: /insights/
+Allow: /case-studies/
+Allow: /services
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /insights/
+Allow: /case-studies/
+Allow: /services
+
+User-agent: CCBot
+Allow: /
+Allow: /insights/
+Allow: /case-studies/
+Allow: /services
+
+User-agent: anthropic-ai
+Allow: /
+Allow: /insights/
+Allow: /case-studies/
+Allow: /services
+
+User-agent: Claude-Web
+Allow: /
+Allow: /insights/
+Allow: /case-studies/
+Allow: /services
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /insights/
+Allow: /case-studies/
+Allow: /services
+
+User-agent: Google-Extended
+Allow: /
+Allow: /insights/
+Allow: /case-studies/
+Allow: /services
 
 # Sitemap location
 Sitemap: https://tydalai.com/sitemap.xml

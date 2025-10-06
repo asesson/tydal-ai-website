@@ -96,7 +96,7 @@ export default function Insights() {
     "@type": "WebPage",
     "name": "AI Insights & Resources | Tydal AI",
     "description": "Expert insights on AI implementation, business automation strategies, and practical guides for transforming your business with artificial intelligence.",
-    "url": "https://tydalagentai.com/insights",
+    "url": "https://tydalai.com/insights",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -104,13 +104,13 @@ export default function Insights() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://tydalagentai.com"
+          "item": "https://tydalai.com"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Insights",
-          "item": "https://tydalagentai.com/insights"
+          "item": "https://tydalai.com/insights"
         }
       ]
     }

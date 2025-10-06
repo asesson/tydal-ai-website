@@ -16,10 +16,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://tydalai.com'),
   title: {
-    default: "Tydal AI - Transform Your Business",
+    default: "Tydal AI - AI Consulting & Business Automation for SMBs",
     template: "%s | Tydal AI"
   },
-  description: "From automated workflows to data-driven decisions, Tydal AI helps small and mid-sized companies unlock real value from AI—fast, safe, and scalable.",
+  description: "Expert AI consulting helping small and mid-sized businesses (10-500 employees) implement automated workflows, intelligent decision-making systems, and scalable AI solutions. Fast deployment, measurable ROI, built-in compliance.",
   keywords: [
     "AI consulting",
     "business automation",
@@ -28,11 +28,16 @@ export const metadata: Metadata = {
     "small business AI",
     "AI implementation",
     "process automation",
-    "AI integration services"
+    "AI integration services",
+    "SMB AI solutions",
+    "intelligent automation",
+    "AI strategy consulting",
+    "workflow optimization"
   ],
   authors: [{ name: "Tydal AI" }],
   creator: "Tydal AI",
   publisher: "Tydal AI",
+  category: "Technology Consulting",
   robots: {
     index: true,
     follow: true,
@@ -49,8 +54,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://tydalai.com',
     siteName: 'Tydal AI',
-    title: 'Tydal AI - Transform Your Business with AI',
-    description: 'From automated workflows to data-driven decisions, Tydal AI helps small and mid-sized companies unlock real value from AI—fast, safe, and scalable.',
+    title: 'Tydal AI - AI Consulting & Business Automation for SMBs',
+    description: 'Expert AI consulting helping small and mid-sized businesses implement automated workflows, intelligent decision-making systems, and scalable AI solutions. Fast deployment, measurable ROI.',
     images: [
       {
         url: '/og-image.png',
@@ -62,8 +67,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tydal AI - Transform Your Business with AI',
-    description: 'From automated workflows to data-driven decisions, Tydal AI helps small and mid-sized companies unlock real value from AI—fast, safe, and scalable.',
+    title: 'Tydal AI - AI Consulting & Business Automation for SMBs',
+    description: 'Expert AI consulting helping small and mid-sized businesses implement automated workflows, intelligent decision-making, and scalable AI solutions.',
     images: ['/og-image.png'],
     creator: '@TydalAI',
   },

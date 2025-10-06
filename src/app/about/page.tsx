@@ -45,7 +45,7 @@ export default function About() {
     "@type": "WebPage",
     "name": "About Tydal AI | AI Transformation Experts",
     "description": "Learn about Tydal AI - AI transformation experts helping small and mid-sized businesses unlock real value from artificial intelligence.",
-    "url": "https://tydalagentai.com/about",
+    "url": "https://tydalai.com/about",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -53,13 +53,13 @@ export default function About() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://tydalagentai.com"
+          "item": "https://tydalai.com"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "About",
-          "item": "https://tydalagentai.com/about"
+          "item": "https://tydalai.com/about"
         }
       ]
     }

@@ -726,7 +726,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     ? firstParagraph.substring(0, 157) + '...'
     : firstParagraph;
 
-  const baseUrl = 'https://tydalagentai.com';
+  const baseUrl = 'https://tydalai.com';
   const url = `${baseUrl}/insights/${slug}`;
 
   return {
@@ -926,14 +926,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     "author": {
       "@type": "Organization",
       "name": "Tydal AI",
-      "url": "https://tydalagentai.com"
+      "url": "https://tydalai.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Tydal AI",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://tydalagentai.com/tydal-logo-green.png"
+        "url": "https://tydalai.com/tydal-logo-green.png"
       }
     },
     "datePublished": new Date(article.publishDate).toISOString(),
@@ -942,14 +942,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     "wordCount": article.content.split(' ').length,
     "timeRequired": article.readTime,
     "keywords": ["AI consulting", "business automation", "AI implementation", article.category],
-    "url": `https://tydalagentai.com/insights/${slug}`,
+    "url": `https://tydalai.com/insights/${slug}`,
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://tydalagentai.com/insights/${slug}`
+      "@id": `https://tydalai.com/insights/${slug}`
     },
     "image": {
       "@type": "ImageObject",
-      "url": "https://tydalagentai.com/og-image.png",
+      "url": "https://tydalai.com/og-image.png",
       "width": 1200,
       "height": 630
     }
