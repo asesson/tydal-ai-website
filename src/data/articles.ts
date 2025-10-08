@@ -1,19 +1,36 @@
-import React from 'react';
-import { Badge } from '@/components/ui';
-import Link from 'next/link';
-import Image from 'next/image';
-import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
-import { TLDR } from '@/components/llmo-summary';
-import { getArticleBySlug, getAllArticles } from '@/data/articles';
+// Centralized article data
+// ADD NEW ARTICLES TO THIS FILE - All articles in one place
 
-// Article data - DEPRECATED: Now using centralized articles.ts
-const articles = {
-  'how-to-pick-your-first-ai-workflow': {
+export interface ArticleTLDR {
+  summary: string;
+  points: string[];
+}
+
+export interface Article {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: 'Getting Started' | 'Best Practices' | 'Implementation' | 'Strategy' | 'Advanced Strategies' | 'Business Value';
+  readTime: string;
+  publishDate: string;
+  featured: boolean;
+  tldr: ArticleTLDR;
+  content: string;
+}
+
+// =============================================================================
+// ARTICLES ARRAY - Add new articles here
+// =============================================================================
+
+export const articles: Article[] = [
+  {
+    slug: 'how-to-pick-your-first-ai-workflow',
     title: "How Do I Pick My First AI Workflow? A Practical Guide for SMB Leaders",
+    excerpt: "A practical guide to identifying the best starting point for AI implementation using a three-question framework.",
     category: "Getting Started",
     readTime: "5 min read",
     publishDate: "April 2025",
+    featured: true,
     tldr: {
       summary: "Choose your first AI workflow by focusing on your biggest operational pain point rather than the most exciting technology. Use a three-question framework to identify repetitive tasks that drain team energy, deliver significant time savings with minimal disruption, and have clear, measurable success metrics.",
       points: [
@@ -107,11 +124,89 @@ The question isn't whether AI will transform your business. It's whether you'll 
 
 *Ready to identify and implement your first AI workflow? Tydal AI specializes in helping small and medium-sized businesses navigate their AI journey with practical, results-focused solutions. Our team works with you to identify the highest-impact opportunities and implement them smoothly, so you can experience the benefits of AI without the overwhelm. Explore the possibilities and take your first step toward AI-powered growth at [Tydal AI](http://tydalagentai.com).*`
   },
-  '7-guardrails-every-smb-needs-before-rolling-out-ai': {
+
+  {
+    slug: 'email-automation-best-first-ai-step',
+    title: "Why Is Email Automation Your Best First Step Into Business AI?",
+    excerpt: "Discover why email automation offers the perfect low-risk, high-impact entry point for businesses adopting AI, with tools like Fyxer and Superhuman leading the way.",
+    category: "Getting Started",
+    readTime: "3 min read",
+    publishDate: "October 2025",
+    featured: true,
+    tldr: {
+      summary: "Email automation offers the perfect entry point for businesses adopting AI—it's low-risk, high-impact, and immediately measurable. Tools like Fyxer and Superhuman demonstrate how modern email AI goes beyond basic auto-replies to intelligently manage your entire communication workflow, saving hours daily while improving response quality and customer satisfaction.",
+      points: [
+        "Immediate ROI: Reclaim 2-5 hours daily with automated triage and smart routing",
+        "Low implementation risk: Start with classification before moving to response generation",
+        "Measurable impact: Track time saved, response speed, and accuracy improvements",
+        "Foundation for growth: Email automation creates the infrastructure for broader AI adoption"
+      ]
+    },
+    content: `Most businesses know they should be using AI but don't know where to begin. Complex AI projects involving custom models, massive data requirements, or organization-wide transformations can feel overwhelming and risky.
+
+  Email automation solves this problem perfectly. Every business has email. Every team member spends significant time managing it. And the pain points are universal and measurable—too many messages, important emails buried in noise, time wasted on repetitive tasks.
+
+  This makes email the ideal proving ground for AI in your business. The use case is clear, the ROI is immediate, and the risk is minimal. You're not betting the company on an experimental AI project—you're making your team more efficient at something they already do every day.
+
+  ## Real Tools, Real Impact
+
+  Modern email AI platforms demonstrate what's possible when you move beyond basic automation to intelligent email management.
+
+  **Superhuman** has pioneered AI-powered email efficiency with features that fundamentally change how professionals handle communication. Its AI triage automatically categorizes emails by importance, surfaces urgent messages first, and learns your communication patterns to predict what needs attention. Split inbox functionality separates important messages from notifications, while AI-generated summaries let you process long threads in seconds. The result? Users report saving 4+ hours weekly on email management.
+
+  **Fyxer** takes a different approach by focusing on automated information extraction and workflow integration. When client emails arrive with project details, Fyxer automatically captures names, requirements, deadlines, and contact information—creating CRM entries and triggering appropriate workflows without manual data entry. For service businesses juggling hundreds of client communications, this transforms email from an administrative burden into an automated intake system that feeds directly into project management and billing workflows.
+
+  Both platforms share a crucial insight: the biggest value in email AI isn't writing responses—it's intelligently managing the entire communication workflow.
+
+  ## Why Email Automation Works as an AI Gateway
+
+  Email automation succeeds as a first AI implementation because it addresses several critical business needs simultaneously.
+
+  **Immediate, measurable value**: Unlike abstract AI projects with uncertain outcomes, email automation delivers tangible time savings from day one. Teams can directly measure hours reclaimed, response times improved, and accuracy gains in information capture.
+
+  **Low complexity, high confidence**: Email AI doesn't require you to overhaul existing systems or retrain your entire organization. It integrates with tools you already use—your CRM, calendar, project management platforms—and enhances workflows rather than replacing them.
+
+  **Scalable learning opportunity**: Starting with email classification and routing builds organizational confidence with AI. Teams learn how to work alongside intelligent systems, understand their capabilities and limitations, and develop best practices—all while solving a real business problem. This foundation makes future AI implementations significantly easier.
+
+  **Data infrastructure for advanced capabilities**: The categorization, tagging, and workflow integration you implement for email automation creates valuable data infrastructure. This becomes the foundation for more sophisticated AI applications like predictive analytics, customer intelligence, and automated decision-making.
+
+  ## Implementation: Start Simple, Scale Smart
+
+  The most successful email AI implementations follow a phased approach that builds capability progressively.
+
+  Begin with intelligent triage and classification. Let AI categorize incoming emails by type—sales inquiries, support requests, billing questions—and route them to appropriate team members. This single capability typically saves 1-2 hours daily per person while improving response times and allocation accuracy.
+
+  Next, implement automated information extraction. Have AI capture contact details from prospect emails, extract invoice data from vendor communications, and identify meeting requests with relevant scheduling details. This eliminates manual data entry and ensures information flows directly into your business systems.
+
+  Only after these foundational capabilities are working reliably should you consider AI-generated responses. By this point, your team understands the AI's capabilities, trust is established, and you have the classification and routing infrastructure to ensure responses are sent to the right people at the right time.
+
+  ## Measuring Success and Building Momentum
+
+  Track metrics that demonstrate clear business value: time saved per team member, reduction in email processing time, improvement in response speed for high-priority messages, and accuracy of information extraction. These concrete numbers build organizational confidence in AI and make the case for expanded implementation.
+
+  The goal isn't just making email more efficient—it's proving AI's value to your business in a low-risk, high-visibility way that creates momentum for broader adoption.
+
+  ## Your AI Journey Starts in Your Inbox
+
+  Email automation represents the ideal first step in business AI adoption. It's practical, measurable, low-risk, and immediately valuable. Tools like Fyxer and Superhuman demonstrate that modern email AI goes far beyond auto-replies to transform how organizations handle communication entirely.
+
+  More importantly, successfully implementing email automation builds the confidence, infrastructure, and organizational capability needed for more advanced AI applications. You're not just making email better—you're establishing the foundation for comprehensive AI integration across your business.
+
+  The question isn't whether to start with email automation. It's how quickly you can implement it and begin reclaiming those hours currently lost to inbox management.
+
+  ---
+
+  *Ready to implement email automation and take your first step into business AI? Tydal AI specializes in helping small and medium-sized businesses identify and implement high-impact AI workflows that deliver immediate results. Our team works with you to integrate solutions like intelligent email management smoothly into your existing operations, so you can experience the benefits without the complexity. Explore the possibilities at [Tydal AI](http://tydalagentai.com).*`
+  },
+
+  {
+    slug: '7-guardrails-every-smb-needs-before-rolling-out-ai',
     title: "What Are the 7 Essential Guardrails for AI Deployment in SMBs?",
+    excerpt: "Before deploying AI, SMBs must establish seven critical guardrails to prevent costly failures and protect their business from unnecessary risks.",
     category: "Best Practices",
     readTime: "8 min read",
     publishDate: "June 2025",
+    featured: true,
     tldr: {
       summary: "Before deploying AI, SMBs must establish seven critical guardrails to prevent costly failures: data privacy frameworks, human oversight requirements, bias detection, accuracy validation, incident response plans, regulatory compliance monitoring, and performance degradation alerts.",
       points: [
@@ -224,11 +319,15 @@ The businesses that will thrive with AI aren't necessarily those that adopt it f
 
 *Ready to implement AI safely and effectively? Tydal AI helps small and medium-sized businesses deploy AI solutions with proper safeguards and compliance measures built in from day one. Our experienced team ensures your AI implementation delivers results while protecting your business from unnecessary risks. Start your responsible AI journey at [Tydal AI](http://tydalagentai.com).*`
   },
-  'from-pilot-to-production-30-day-checklist': {
+
+  {
+    slug: 'from-pilot-to-production-30-day-checklist',
     title: "How Do I Scale an AI Pilot to Production in 30 Days?",
+    excerpt: "Successfully scale AI pilots to production in 30 days using a structured approach from readiness assessment through operational handoff.",
     category: "Implementation",
     readTime: "9 min read",
     publishDate: "July 2025",
+    featured: true,
     tldr: {
       summary: "Successfully scale AI pilots to production in 30 days using a structured approach: assess readiness (days 1-5), build infrastructure (days 6-10), train users (days 11-15), execute phased deployment (days 16-20), optimize integration (days 21-25), and validate handoff (days 26-30).",
       points: [
@@ -355,11 +454,15 @@ Remember that successful AI scaling isn't about speed—it's about sustainabilit
 
 *Ready to scale your AI pilot to full production? Tydal AI specializes in helping organizations navigate the complex transition from successful pilots to enterprise-wide AI deployment. Our systematic approach ensures your AI scaling delivers sustainable business value while avoiding common pitfalls. Turn your AI success into organizational transformation at [Tydal AI](http://tydalagentai.com).*`
   },
-  'why-ai-adoption-fails-and-how-to-prevent-it': {
+
+  {
+    slug: 'why-ai-adoption-fails-and-how-to-prevent-it',
     title: "Why Does AI Adoption Fail and How Can I Prevent It?",
+    excerpt: "70-80% of AI projects fail due to five predictable patterns. Learn how to avoid these pitfalls and ensure successful AI implementation.",
     category: "Strategy",
     readTime: "9 min read",
     publishDate: "August 2025",
+    featured: false,
     tldr: {
       summary: "70-80% of AI projects fail due to five predictable patterns: solution-first thinking, data quality underestimation, insufficient change management, unrealistic expectations, and integration complexity oversight. Success requires starting with business problems, investing in data quality, comprehensive change management, realistic timelines, and integration planning.",
       points: [
@@ -488,98 +591,15 @@ The organizations that will thrive with AI aren't those that avoid all problems�
 
 *Ready to implement AI successfully while avoiding common pitfalls? Tydal AI specializes in helping organizations navigate AI adoption challenges with proven strategies that prevent failure and ensure sustainable results. Our experienced team guides you through every step of AI implementation, from problem definition to ongoing optimization. Start your successful AI journey at [Tydal AI](http://tydalagentai.com).*`
   },
-  'email-ai-beyond-auto-reply': {
-    title: "How Can Email AI Do More Than Just Auto-Replies?",
-    category: "Advanced Strategies",
-    readTime: "5 min read",
-    publishDate: "September 2025",
-    tldr: {
-      summary: "Advanced email AI goes beyond auto-replies to intelligently triage messages, extract structured data, route communications, and integrate with business systems. Intelligent routing prioritizes based on content and sender importance, while automated extraction captures contacts, processes invoices, and manages documents without manual data entry.",
-      points: [
-        "Intelligent triage classifies emails by content, sender priority, urgency, and delegates to appropriate team members",
-        "Automated extraction captures contact information, processes financial documents, and manages meeting scheduling",
-        "Smart routing integrates with CRM data to prioritize high-value clients and hot prospects automatically",
-        "Document management integration categorizes attachments and files them in appropriate project folders",
-        "Start with high-volume classification before moving to complex response generation"
-      ]
-    },
-    content: `Most businesses think email AI means auto-generating responses to customer inquiries. While automated replies have their place, this narrow view misses the transformative potential of intelligent email management systems that can revolutionize how organizations handle communication workflows.
 
-Advanced email AI goes far beyond crafting responses. It can intelligently route messages, extract actionable insights, predict communication priorities, and integrate email workflows with broader business processes. For small and medium-sized businesses managing hundreds or thousands of emails daily, these capabilities represent significant competitive advantages.
-
-Understanding and implementing foundational email AI strategies creates the groundwork for transforming email from a time-consuming burden into a strategic business asset.
-
-## The Limitations of Basic Auto-Reply
-
-Traditional auto-reply systems create more problems than they solve. They generate generic responses that frustrate customers, miss nuanced communication contexts, and often require as much manual oversight as handling emails directly.
-
-A customer service team using basic auto-reply discovered that 60% of their automated responses required follow-up corrections, effectively doubling their workload instead of reducing it. The system couldn't distinguish between urgent technical issues and general inquiries, leading to inappropriate response priorities and customer dissatisfaction.
-
-Advanced email AI addresses these limitations through contextual understanding, intelligent routing, and integration with business processes that extend far beyond simple message generation.
-
-## Intelligent Email Triage and Routing
-
-The first advanced capability involves automatically categorizing incoming emails and routing them to appropriate handlers based on content analysis, sender importance, and business context.
-
-**Content-Based Classification:** AI systems can analyze email content to identify categories like sales inquiries, technical support requests, billing questions, or partnership opportunities. This classification happens instantly and with much higher accuracy than rule-based filters.
-
-**Sender Priority Scoring:** Advanced systems integrate with CRM data to automatically prioritize emails from high-value clients, hot prospects, or key partners. A $50,000 client's email receives immediate escalation while routine vendor communications are queued appropriately.
-
-**Urgency Detection:** AI can identify truly urgent communications through language analysis, deadline detection, and contextual cues. Emergency technical issues are flagged immediately while routine status updates are processed during normal business hours.
-
-**Smart Delegation:** Instead of routing all emails to managers, AI can direct messages to team members with relevant expertise, appropriate authority levels, or current availability, ensuring faster response times and better outcomes.
-
-## Automated Information Extraction and Integration
-
-Modern email AI excels at extracting structured data from unstructured email content and integrating this information with business systems automatically.
-
-**Contact Information Capture:** When potential clients email general inquiries, AI can automatically extract names, companies, phone numbers, and project details, creating CRM entries and triggering appropriate sales workflows without manual data entry.
-
-**Invoice and Purchase Order Processing:** AI can identify financial documents attached to emails, extract relevant data points, and automatically update accounting systems or trigger approval workflows based on company policies.
-
-**Meeting Scheduling Intelligence:** Beyond basic calendar integration, advanced systems can analyze email threads to identify meeting requests, propose optimal times based on participant availability, and automatically send calendar invitations with extracted agenda items.
-
-**Document Management Integration:** AI can analyze email attachments, categorize documents by type and importance, and automatically file them in appropriate project folders or document management systems with relevant metadata.
-
-## Implementation Strategies for Core Functions
-
-Successfully implementing foundational email AI requires systematic planning and phased deployment rather than attempting to automate everything simultaneously.
-
-**Start with High-Volume, Low-Complexity Tasks:** Begin with email classification and routing before moving to response generation or complex integrations. This approach allows teams to build confidence and refine processes gradually.
-
-**Integrate with Existing Systems:** Ensure email AI works with current CRM, project management, and communication tools rather than requiring wholesale system replacements.
-
-**Maintain Human Oversight:** Even advanced AI systems benefit from human oversight, especially during initial implementation. Plan for review processes and exception handling procedures.
-
-**Train on Company-Specific Data:** Generic AI models work better when trained on your organization's communication patterns, terminology, and business processes.
-
-## Measuring Initial Success
-
-Success metrics for foundational email AI focus on operational efficiency improvements and accuracy gains in core functions.
-
-Track classification accuracy rates, routing effectiveness, and information extraction precision. Monitor time savings from automated data entry and improved response allocation. Measure user satisfaction with routing decisions and system reliability.
-
-The goal at this stage is establishing reliable, efficient foundational capabilities that create the infrastructure for more advanced email AI applications.
-
-## Building Your Foundation
-
-Intelligent email triage, automated information extraction, and smart routing represent the essential building blocks of advanced email AI systems. These capabilities provide immediate operational benefits while creating the data infrastructure and process foundations necessary for more sophisticated applications.
-
-Organizations that successfully implement these core functions position themselves for advanced capabilities like predictive email management, contextual response generation, and comprehensive business intelligence extraction from communication patterns.
-
-The key is viewing these foundational capabilities not as end goals but as stepping stones toward comprehensive email intelligence that supports broader business strategy and operations.
-
-In Part 2, we'll explore advanced predictive email management, context-aware response generation, and how to transform email data into actionable business intelligence.
-
----
-
-*Ready to implement foundational email AI strategies that go beyond basic auto-reply? Tydal AI specializes in developing intelligent email management solutions that create the groundwork for advanced automation capabilities. Our team helps you design and implement smart email triage, automated data extraction, and integrated routing systems that transform your communication workflows. Start building your email AI foundation at [Tydal AI](http://tydalagentai.com).*`
-  },
-  'roi-calculator-measuring-ai-impact': {
+  {
+    slug: 'roi-calculator-measuring-ai-impact',
     title: "How Do I Measure ROI from AI Implementations?",
+    excerpt: "Measure AI ROI using a five-component framework that captures direct cost savings, productivity gains, quality improvements, strategic advantages, and revenue impact.",
     category: "Business Value",
     readTime: "8 min read",
     publishDate: "September 2025",
+    featured: false,
     tldr: {
       summary: "Measure AI ROI using a five-component framework: direct cost savings (labor and operational reductions), productivity gains (output increases without additional costs), quality improvements (error reduction and consistency), strategic advantages (competitive positioning and capability building), and revenue impact (faster time-to-market and better decisions).",
       points: [
@@ -762,375 +782,51 @@ Most importantly, comprehensive ROI frameworks demonstrate that AI delivers meas
 
 *Ready to implement comprehensive ROI measurement for your AI initiatives? Tydal AI helps organizations develop systematic frameworks for calculating, tracking, and optimizing return on investment from AI implementations. Our team provides the tools and methodologies needed to demonstrate clear business value and build compelling cases for AI expansion. Start measuring and maximizing your AI ROI at [Tydal AI](http://tydalagentai.com).*`
   }
-};
+];
 
-interface ArticlePageProps {
-  params: {
-    slug: string;
-  };
+// =============================================================================
+// HELPER FUNCTIONS
+// =============================================================================
+
+/**
+ * Get a single article by its slug
+ */
+export function getArticleBySlug(slug: string): Article | undefined {
+  return articles.find(article => article.slug === slug);
 }
 
-export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const article = getArticleBySlug(slug);
-
-  if (!article) {
-    return {
-      title: 'Article Not Found | Tydal AI',
-      description: 'The requested article could not be found.'
-    };
-  }
-
-  // Extract first paragraph for description
-  const firstParagraph = article.content.split('\n\n')[0];
-  const description = firstParagraph.length > 160
-    ? firstParagraph.substring(0, 157) + '...'
-    : firstParagraph;
-
-  const baseUrl = 'https://tydalai.com';
-  const url = `${baseUrl}/insights/${slug}`;
-
-  return {
-    title: `${article.title} | Tydal AI`,
-    description,
-    keywords: [
-      'AI consulting',
-      'business automation',
-      'AI implementation',
-      'SMB AI solutions',
-      'workflow automation',
-      article.category.toLowerCase()
-    ],
-    authors: [{ name: 'Tydal AI' }],
-    creator: 'Tydal AI',
-    publisher: 'Tydal AI',
-    formatDetection: {
-      email: false,
-      address: false,
-      telephone: false,
-    },
-    metadataBase: new URL(baseUrl),
-    alternates: {
-      canonical: url,
-    },
-    openGraph: {
-      title: article.title,
-      description,
-      url,
-      siteName: 'Tydal AI',
-      locale: 'en_US',
-      type: 'article',
-      publishedTime: new Date(article.publishDate).toISOString(),
-      authors: ['Tydal AI'],
-      section: article.category,
-      tags: ['AI consulting', 'business automation', 'AI implementation'],
-      images: [
-        {
-          url: `${baseUrl}/og-image.png`,
-          width: 1200,
-          height: 630,
-          alt: `${article.title} - Tydal AI`,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: article.title,
-      description,
-      creator: '@tydalai',
-      images: [`${baseUrl}/og-image.png`],
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
-    },
-  };
+/**
+ * Get all articles
+ */
+export function getAllArticles(): Article[] {
+  return articles;
 }
 
-export function generateStaticParams() {
-  return getAllArticles().map((article) => ({
-    slug: article.slug,
-  }));
+/**
+ * Get articles by category
+ */
+export function getArticlesByCategory(category: string): Article[] {
+  return articles.filter(article => article.category === category);
 }
 
-export default async function ArticlePage({ params }: ArticlePageProps) {
-  const { slug } = await params;
-  const article = getArticleBySlug(slug);
+/**
+ * Get featured articles
+ */
+export function getFeaturedArticles(): Article[] {
+  return articles.filter(article => article.featured);
+}
 
-  if (!article) {
-    notFound();
-  }
+/**
+ * Get article count by category
+ */
+export function getArticleCountByCategory(category: string): number {
+  return articles.filter(article => article.category === category).length;
+}
 
-  // Convert markdown-style content to JSX
-  const renderContent = (content: string) => {
-    const paragraphs = content.split('\n\n');
-    return paragraphs.map((paragraph, index) => {
-      if (paragraph.startsWith('## ')) {
-        return (
-          <h2 key={index} className="text-2xl font-bold text-gray-900 mb-4 mt-8">
-            {paragraph.replace('## ', '')}
-          </h2>
-        );
-      }
-      if (paragraph.startsWith('### ')) {
-        return (
-          <h3 key={index} className="text-lg font-semibold text-gray-900 mb-3 mt-6">
-            {paragraph.replace('### ', '')}
-          </h3>
-        );
-      }
-      if (paragraph.startsWith('- ')) {
-        const listItems = paragraph.split('\n').filter(line => line.startsWith('- '));
-        return (
-          <ul key={index} className="list-disc pl-6 mb-6 space-y-2">
-            {listItems.map((item, itemIndex) => (
-              <li key={itemIndex} className="text-gray-700">
-                {item.replace('- ', '')}
-              </li>
-            ))}
-          </ul>
-        );
-      }
-      if (paragraph.startsWith('1. ')) {
-        const listItems = paragraph.split('\n').filter(line => /^\d+\./.test(line));
-        return (
-          <ol key={index} className="list-decimal pl-6 mb-6 space-y-2">
-            {listItems.map((item, itemIndex) => (
-              <li key={itemIndex} className="text-gray-700">
-                {item.replace(/^\d+\.\s/, '')}
-              </li>
-            ))}
-          </ol>
-        );
-      }
-      if (paragraph.startsWith('---')) {
-        return <hr key={index} className="my-8 border-gray-300" />;
-      }
-      // Check if this is an italic paragraph
-      const isItalic = paragraph.startsWith('*') && paragraph.endsWith('*');
-      const contentToProcess = isItalic ? paragraph.slice(1, -1) : paragraph;
-
-      // Handle links and bold text in paragraphs
-      const processInlineFormatting = (text: string) => {
-        const parts = [];
-        let lastIndex = 0;
-
-        // Combined regex for links and bold text
-        const formatRegex = /(\[([^\]]+)\]\(([^)]+)\))|(\*\*([^\*]+)\*\*)/g;
-        let match;
-
-        while ((match = formatRegex.exec(text)) !== null) {
-          // Add text before the match
-          if (match.index > lastIndex) {
-            parts.push(text.slice(lastIndex, match.index));
-          }
-
-          if (match[1]) {
-            // It's a link
-            parts.push(
-              <a key={match.index} href={match[3]} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                {match[2]}
-              </a>
-            );
-          } else if (match[4]) {
-            // It's bold text
-            parts.push(
-              <strong key={match.index} className="font-semibold">
-                {match[5]}
-              </strong>
-            );
-          }
-
-          lastIndex = match.index + match[0].length;
-        }
-
-        // Add remaining text
-        if (lastIndex < text.length) {
-          parts.push(text.slice(lastIndex));
-        }
-
-        return parts.length > 1 ? parts : [text];
-      };
-
-      const parts = processInlineFormatting(contentToProcess);
-
-      // Return with appropriate styling
-      if (isItalic) {
-        return (
-          <p key={index} className="text-gray-600 italic mb-6 text-center">
-            {parts}
-          </p>
-        );
-      }
-
-      return (
-        <p key={index} className="text-gray-700 mb-6 leading-relaxed">
-          {parts}
-        </p>
-      );
-    });
-  };
-
-  // Generate Article structured data
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": article.title,
-    "description": article.content.split('\n\n')[0],
-    "author": {
-      "@type": "Organization",
-      "name": "Tydal AI",
-      "url": "https://tydalai.com"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Tydal AI",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://tydalai.com/tydal-logo-green.png"
-      }
-    },
-    "datePublished": new Date(article.publishDate).toISOString(),
-    "dateModified": new Date(article.publishDate).toISOString(),
-    "articleSection": article.category,
-    "wordCount": article.content.split(' ').length,
-    "timeRequired": article.readTime,
-    "keywords": ["AI consulting", "business automation", "AI implementation", article.category],
-    "url": `https://tydalai.com/insights/${slug}`,
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://tydalai.com/insights/${slug}`
-    },
-    "image": {
-      "@type": "ImageObject",
-      "url": "https://tydalai.com/og-image.png",
-      "width": 1200,
-      "height": 630
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-background">
-      {/* Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/" className="flex items-center gap-2">
-                <Image
-                  src="/tydal-logo-green.png"
-                  alt="Tydal AI - Return to homepage"
-                  width={160}
-                  height={60}
-                  className="h-12 w-auto"
-                />
-              </Link>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <Link href="/services" className="text-gray-600 hover:text-primary transition-colors">Services</Link>
-              <Link href="/case-studies" className="text-gray-600 hover:text-primary transition-colors">Case Studies</Link>
-              <Link href="/about" className="text-gray-600 hover:text-primary transition-colors">About</Link>
-              <Link href="/insights" className="text-primary font-medium">Insights</Link>
-              <Link href="/contact" className="text-gray-600 hover:text-primary transition-colors">Contact</Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Article Content */}
-      <article className="py-16">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
-          {/* Back link */}
-          <div className="mb-8">
-            <Link href="/insights" className="text-primary hover:underline flex items-center gap-2">
-              ← Back to Insights
-            </Link>
-          </div>
-
-          {/* Article Header */}
-          <header className="mb-12">
-            <div className="mb-4">
-              <Badge variant="info" size="sm">{article.category}</Badge>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              {article.title}
-            </h1>
-            <div className="flex items-center gap-4 text-sm text-gray-600">
-              <span>{article.readTime}</span>
-              <span>•</span>
-              <span>{article.publishDate}</span>
-            </div>
-          </header>
-
-          {/* TLDR Section */}
-          {article.tldr && (
-            <TLDR
-              summary={article.tldr.summary}
-              points={article.tldr.points}
-            />
-          )}
-
-          {/* Article Content */}
-          <div className="prose prose-lg max-w-none">
-            {renderContent(article.content)}
-          </div>
-        </div>
-      </article>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <Image
-                src="/tydal-logo-green.png"
-                alt="Tydal AI - Return to homepage"
-                width={160}
-                height={60}
-                className="h-6 w-auto mb-4"
-              />
-              <p className="text-gray-400">Making advanced AI accessible to growing businesses.</p>
-            </div>
-            <div>
-              <h5 className="font-semibold mb-4">Services</h5>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
-                <li><Link href="/services" className="hover:text-white transition-colors">Foundations</Link></li>
-                <li><Link href="/services" className="hover:text-white transition-colors">Scale & Governance</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h5 className="font-semibold mb-4">Company</h5>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
-                <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
-                <li><Link href="/insights" className="hover:text-white transition-colors">Insights</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h5 className="font-semibold mb-4">Connect</h5>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Tydal AI. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
+/**
+ * Get all unique categories
+ */
+export function getAllCategories(): string[] {
+  const categories = articles.map(article => article.category);
+  return Array.from(new Set(categories));
 }

@@ -1,95 +1,77 @@
+'use client';
+
 import { Card, Badge } from '@/components/ui';
 import Link from 'next/link';
 import Image from 'next/image';
-import { HiRocketLaunch, HiCog, HiChartBar } from 'react-icons/hi2';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'AI Insights & Resources',
-  description: 'Expert insights on AI implementation, business automation strategies, and practical guides for transforming your business with artificial intelligence.',
-  keywords: [
-    'AI insights',
-    'AI implementation guides',
-    'business automation strategies',
-    'AI transformation resources',
-    'AI consulting insights',
-    'business AI resources',
-    'AI workflow guides'
-  ],
-  openGraph: {
-    title: 'AI Insights & Resources | Tydal AI',
-    description: 'Expert insights on AI implementation, business automation strategies, and practical guides for transforming your business with artificial intelligence.',
-    url: 'https://tydalai.com/insights',
-    images: [
-      {
-        url: '/og-insights.png',
-        width: 1200,
-        height: 630,
-        alt: 'Tydal AI Insights - Expert AI Implementation Guides',
-      }
-    ],
-  },
-  twitter: {
-    title: 'AI Insights & Resources | Tydal AI',
-    description: 'Expert insights on AI implementation, business automation strategies, and practical guides for transforming your business with artificial intelligence.',
-    images: ['/og-insights.png'],
-  },
-  alternates: {
-    canonical: 'https://tydalai.com/insights',
-  },
-};
+import { HiRocketLaunch, HiCog, HiChartBar, HiShieldCheck, HiLightBulb, HiSparkles, HiXMark } from 'react-icons/hi2';
+import { useState, useRef } from 'react';
+import { getAllArticles } from '@/data/articles';
 
 export default function Insights() {
-  const articles = [
+  // State for category filtering
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const allArticlesRef = useRef<HTMLElement>(null);
+
+  // Get all articles from centralized data file
+  const articles = getAllArticles();
+
+  // Define all categories with their metadata
+  const categories = [
     {
-      title: "How to Pick Your First AI Workflow",
-      excerpt: "A practical guide to identifying the best starting point for AI implementation in your business.",
-      readTime: "5 min read",
-      category: "Getting Started",
-      featured: true,
-      slug: "how-to-pick-your-first-ai-workflow"
+      name: "Getting Started",
+      icon: HiRocketLaunch,
+      description: "First steps and foundational concepts"
     },
     {
-      title: "The 7 Guardrails Every SMB Needs Before Rolling Out AI",
-      excerpt: "Essential safeguards and compliance measures for responsible AI deployment.",
-      readTime: "8 min read",
-      category: "Best Practices",
-      featured: true,
-      slug: "7-guardrails-every-smb-needs-before-rolling-out-ai"
+      name: "Best Practices",
+      icon: HiShieldCheck,
+      description: "Proven strategies and guidelines"
     },
     {
-      title: "From Pilot to Production: A 30-Day Checklist",
-      excerpt: "Step-by-step guide to scaling successful AI pilots across your organization.",
-      readTime: "6 min read",
-      category: "Implementation",
-      featured: true,
-      slug: "from-pilot-to-production-30-day-checklist"
+      name: "Implementation",
+      icon: HiCog,
+      description: "Hands-on guides and workflows"
     },
     {
-      title: "Why AI Adoption Fails—and How to Prevent It",
-      excerpt: "Common pitfalls in AI implementation and proven strategies to avoid them.",
-      readTime: "7 min read",
-      category: "Strategy",
-      featured: true,
-      slug: "why-ai-adoption-fails-and-how-to-prevent-it"
+      name: "Strategy",
+      icon: HiLightBulb,
+      description: "Planning and decision-making"
     },
     {
-      title: "Email AI: Beyond Auto-Reply (Part 1)",
-      excerpt: "Advanced email automation strategies that go beyond simple response generation.",
-      readTime: "9 min read",
-      category: "Advanced Strategies",
-      featured: false,
-      slug: "email-ai-beyond-auto-reply"
+      name: "Advanced Strategies",
+      icon: HiSparkles,
+      description: "Complex use cases and optimization"
     },
     {
-      title: "ROI Calculator: Measuring AI Impact",
-      excerpt: "Framework for calculating and tracking return on investment from AI initiatives.",
-      readTime: "12 min read",
-      category: "Business Value",
-      featured: false,
-      slug: "roi-calculator-measuring-ai-impact"
+      name: "Business Value",
+      icon: HiChartBar,
+      description: "ROI measurement and metrics"
     }
   ];
+
+  // Helper function to get article count by category
+  const getArticleCount = (categoryName: string) => {
+    return articles.filter(article => article.category === categoryName).length;
+  };
+
+  // Helper function to filter articles by category
+  const filteredArticles = selectedCategory
+    ? articles.filter(article => article.category === selectedCategory)
+    : articles;
+
+  // Function to handle category click
+  const handleCategoryClick = (categoryName: string) => {
+    setSelectedCategory(categoryName);
+    // Scroll to All Articles section
+    setTimeout(() => {
+      allArticlesRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
+
+  // Function to clear category filter
+  const clearFilter = () => {
+    setSelectedCategory(null);
+  };
 
   const webPageSchema = {
     "@context": "https://schema.org",
@@ -195,15 +177,33 @@ export default function Insights() {
 
 
       {/* All Articles */}
-      <section className="py-16 bg-gray-50">
+      <section ref={allArticlesRef} className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">All Articles</h2>
-            <p className="text-lg text-gray-600">Comprehensive library of AI implementation resources</p>
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">All Articles</h2>
+                <p className="text-lg text-gray-600">
+                  {selectedCategory
+                    ? `Showing ${filteredArticles.length} ${filteredArticles.length === 1 ? 'article' : 'articles'} in ${selectedCategory}`
+                    : 'Comprehensive library of AI implementation resources'
+                  }
+                </p>
+              </div>
+              {selectedCategory && (
+                <button
+                  onClick={clearFilter}
+                  className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
+                >
+                  <HiXMark className="text-xl" />
+                  Clear Filter
+                </button>
+              )}
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {articles.map((article, index) => (
+            {filteredArticles.map((article, index) => (
               <Link key={index} href={`/insights/${article.slug}`}>
                 <Card className="p-6 hover:shadow-md transition-shadow cursor-pointer h-full">
                   <div className="mb-4">
@@ -235,32 +235,30 @@ export default function Insights() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="text-center p-6 hover:shadow-md transition-shadow cursor-pointer">
-              <div className="flex justify-center mb-4">
-                <HiRocketLaunch className="text-4xl text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Getting Started</h3>
-              <p className="text-gray-600 text-sm mb-4">First steps and foundational concepts</p>
-              <span className="text-primary text-sm font-medium">5 articles →</span>
-            </Card>
+            {categories.map((category) => {
+              const Icon = category.icon;
+              const count = getArticleCount(category.name);
+              const isActive = selectedCategory === category.name;
 
-            <Card className="text-center p-6 hover:shadow-md transition-shadow cursor-pointer">
-              <div className="flex justify-center mb-4">
-                <HiCog className="text-4xl text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Implementation</h3>
-              <p className="text-gray-600 text-sm mb-4">Hands-on guides and best practices</p>
-              <span className="text-primary text-sm font-medium">8 articles →</span>
-            </Card>
-
-            <Card className="text-center p-6 hover:shadow-md transition-shadow cursor-pointer">
-              <div className="flex justify-center mb-4">
-                <HiChartBar className="text-4xl text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Business Value</h3>
-              <p className="text-gray-600 text-sm mb-4">ROI measurement and strategy</p>
-              <span className="text-primary text-sm font-medium">6 articles →</span>
-            </Card>
+              return (
+                <Card
+                  key={category.name}
+                  className={`text-center p-6 hover:shadow-lg transition-all cursor-pointer ${
+                    isActive ? 'ring-2 ring-primary shadow-lg bg-green-50' : ''
+                  }`}
+                  onClick={() => handleCategoryClick(category.name)}
+                >
+                  <div className="flex justify-center mb-4">
+                    <Icon className={`text-4xl ${isActive ? 'text-primary' : 'text-primary'}`} />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{category.name}</h3>
+                  <p className="text-gray-600 text-sm mb-4">{category.description}</p>
+                  <span className="text-primary text-sm font-medium">
+                    {count} {count === 1 ? 'article' : 'articles'} →
+                  </span>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
