@@ -136,7 +136,7 @@ The question isn't whether AI will transform your business. It's whether you'll 
   tldr: {
     summary: "Email automation offers the perfect entry point for businesses adopting AI—it's low-risk, high-impact, and immediately measurable. Tools like Fyxer and Superhuman demonstrate how modern email AI goes beyond basic auto-replies to intelligently manage your entire communication workflow, saving hours daily while improving response quality and customer satisfaction.",
     points: [
-      "Immediate ROI: Reclaim 2-5 hours daily with automated triage and smart routing",
+      "Immediate ROI: Reclaim 1-3 hours daily with automated triage and smart routing",
       "Low implementation risk: Start with classification before moving to response generation",
       "Measurable impact: Track time saved, response speed, and accuracy improvements",
       "Foundation for growth: Email automation creates the infrastructure for broader AI adoption"
